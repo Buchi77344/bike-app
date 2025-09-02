@@ -1,3 +1,4 @@
+import 'package:bike/components/colors.dart';
 import 'package:flutter/material.dart';
 
 enum TriangleDirection { left, right, up, down }
@@ -13,12 +14,14 @@ class FloatingTriangle extends StatelessWidget {
   final double? right;
   final double? bottom;
   final TriangleDirection direction;
+  final LinearGradient? gradient;
 
   const FloatingTriangle({
     super.key,
-    this.color = Colors.red,
+    this.color = AppColors.primaryBlue,
     this.size = 100,
     this.top,
+    this.gradient,
     this.left,
     this.right,
     this.bottom,
@@ -42,7 +45,7 @@ class FloatingTriangle extends StatelessWidget {
               width: size,
               height: size,
               child: CustomPaint(
-                painter: _TrianglePainter(color, direction),
+                painter: _TrianglePainter(color,  direction),
               ),
             ),
           ),
